@@ -78,7 +78,7 @@ tribble(
 ```
 \pagebreak
 
-## Univerity Tutoring
+## University Tutoring
 
 ```{r tutoring2}
 
