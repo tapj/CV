@@ -197,7 +197,7 @@ arrange(desc(issued))
 ```
 
 
-## Resaerch Article
+## Research Articles
 
 ```{r publications2}
 
@@ -240,7 +240,15 @@ distinct(title, .keep_all = TRUE) %>%
   arrange(desc(year)) %>%
   filter(year > 2008) %>%
   filter(!(journaltitle %in% articles_to_remove)) %>%
+  rbind(
+    
+    tribble(
+  ~ bibtype, ~ author, ~ title, ~ journaltitle, ~ year, ~ key,
+  "Article", "T Vanhaecke, O Bretin, M Poirel, J Tap", "Drinking water source and intake are associated with distinct gut microbiota signatures", "The Journal of Nutrition", "2021", 99
+  )
+  ) %>%
   
+  arrange(desc(year)) %>%
   mutate(key = row_number()) %>%
   detailed_entries(what = author,when = year, where = journaltitle, with = paste0(key,". ", title)  )
   #brief_entries(what = paste0(author,". ",title), when = year, with= journaltitle)
@@ -251,7 +259,7 @@ distinct(title, .keep_all = TRUE) %>%
 
 
 ```
-
+\pagebreak
 ## Reviews and books chapter
 
 ```{r reviews}
@@ -266,6 +274,17 @@ distinct(title, .keep_all = TRUE) %>%
   filter(year > 2008) %>%
   filter((journaltitle %in% reviews_book)) %>%
   
+  rbind(
+    
+    tribble(
+  ~ bibtype, ~ author, ~ title, ~ journaltitle, ~ year, ~ key,
+  "Article", "J Doré, J Tap, D Ehrlich", "Techniques d'identification et d'exploration du microbiote", "John Libbey Eurotext", "2017", 99,
+    "Article", "J Doré, J Tap, D Ehrlich", "Composition du microbiote intestinal", "John Libbey Eurotext", "2017", 99
+  )
+    
+    
+  ) %>%
+  arrange(desc(year)) %>%
   mutate(key = row_number()) %>%
   detailed_entries(what = author,when = year, where = journaltitle, with = paste0(key,". ", title)  )
 
