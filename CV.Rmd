@@ -124,9 +124,12 @@ tribble(
 
 tribble(
   ~ award, ~ org, ~ dates, ~ details, 
-  "Travel Grant fellowship", "JFHOD", "2011", "Société Nationale Française de Gastro-Entérologie",
+  
+  "Highly Cited Researchers", "Clarivate Web of Science", "2020","Recognizing the true pioneers in their fields over the last decade, demonstrated by the production of multiple highly-cited papers that rank in the top 1\\% by citations for field and year in the Web of Science",
+  
   "Early stage Investigator Recognition", "The American Gastroenterological Association", "2015", "Digestive Disease Week, Washington, 2015",
-  "Highly Cited Researchers", "Clarivate Web of Science", "2020","Recognizing the true pioneers in their fields over the last decade, demonstrated by the production of multiple highly-cited papers that rank in the top 1\\% by citations for field and year in the Web of Science") %>%
+  
+  "Travel Grant fellowship", "JFHOD", "2011", "Société Nationale Française de Gastro-Entérologie") %>%
   
   brief_entries(glue::glue("\\textbf{<award>}: <org> \\newline <details>", .open = "<", .close = ">"), paste0(dates, "\\newline"), .protect = FALSE)
   
