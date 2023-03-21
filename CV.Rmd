@@ -3,12 +3,12 @@ name: Julien
 surname: Tap
 date: "`r format(Sys.time(), '%B, %Y')`"
 qualifications: PhD
-position: Microbiome Scientist
+position: Research Scientist
 address: France
-email: julientap@free.fr
-www: julientap.com
+email: julien.tap@inrae.fr
+www: fme.micalis.fr
 profilepic: 20210704154818_IMG_7493_nb.jpg
-aboutme: After several internships in microbiology at Institut Pasteur (Patrick Grimont, Philippe Glaser, Sylvain Brisse), I went to Joel Doré's Lab to do a PhD headed by Marion Leclerc. My main project was to study dietary fiber effects on human gut microbiota using notably metagenomic and metatranscriptomic approach. Since my PhD, my research interest focused on interactions between nutrition, gut microbiota and human health. As post-doc successively done at EMBL in Peer Bork’s group and at INRA Metagenopolis unit (Joel Doré, Dusko Ehrlich), I used several approaches like numerical ecology and machine learning technics to untangle big omics data with clinical and dietary data. This allowed me to work with different AP-HP and DKFZ clinicians. I am currently microbiome scientist at Danone Nutricia Research center settled in Paris-Saclay campus where I am working on human gut microbiome topics linked with nutrition and digestive health.
+aboutme: After several internships in microbiology at Institut Pasteur (Patrick Grimont, Philippe Glaser, Sylvain Brisse), Julien Tap went to Joel Doré’s Lab to do a PhD headed by Marion Leclerc (Jan 2007 to Dec 2009). His main project was to study dietary fiber impact on human gut microbiota using notably metagenomic and metatranscriptomic approaches. Since his PhD, his research interest focused on interactions between nutrition, gut microbiota, and human health. This allowed him to work with different AP-HP clinicians like Pr Karine Clément and Pr Iradj Sobhani. As post-doc did at EMBL in Peer Bork’s group and at INRAE Metagenopolis unit (Joel Doré, Dusko Ehrlich), as well as Danone research, he used several approaches like numerical ecology and machine learning technics to untangle big omics data with clinical and dietary data. Julien is currently a research scientist at INRAE Micalis institute settled in Paris-Saclay campus, where he works on food and gut microbiome science topics around nutrition and human health.
 github: tapj
 linkedin: julientap
 twitter: julientap
@@ -16,6 +16,7 @@ headcolor: "1E90FF"
 output: 
   vitae::awesomecv:
     keep_tex: true
+    latex_engine: xelatex
 ---
 
 ```{r setup, include=FALSE}
@@ -30,7 +31,10 @@ knitr::opts_chunk$set(echo = FALSE)
 ```{r experience}
 tribble(
   ~ role, ~ company, ~ loc, ~ dates, ~ details,
-  "Microbiome scientist", "Danone Nutricia Research", "Paris-Saclay, France", "2015 - Present", 
+  
+  "Research scientist", "INRAE Micalis", "Jouy-en-Josas", "2022 - Present", NULL,
+  
+  "Microbiome scientist", "Danone Nutricia Research", "Paris-Saclay, France", "2015 - 2022", 
     list("Ensure high quality science, deliverables and publications",
          "Manage external collaborations"),
   
@@ -40,7 +44,7 @@ tribble(
   
   "Postdoctoral Researcher", "EMBL Peer Bork group Computational Biology", "Heidelberg, Germany", "2010 - 2012", NULL,
   
-  "PhD student", "INRA Joël Doré group", "Jouy-en-Josas, France", "2007 - 2009", "Thesis project : Diet impact on structural and functional dynamics of the human intestinal microbiota",
+  "PhD student", "INRA Doré Lab", "Jouy-en-Josas, France", "2007 - 2009", "Thesis project : Diet impact on structural and functional dynamics of the human intestinal microbiota",
   
   "Intership student","Institut Pasteur", "Paris, France", "2004-2006", list(
     "Master’s degree project: genetic structure of M. prototuberculosis and origin of M. tuberculosis (S. Brisse)",
@@ -84,6 +88,9 @@ tribble(
 
 tribble(
   ~ activity, ~ loc, ~ dates, ~ details,
+  
+  "Ruben Ladeira", "Master genie Biologie polytech Nice sophia", "2022", "Structural and functional variations of gut Bifidobacterium metagenomes are associated with human gut microbiome alterations and health status",
+  
   "Iñigo Oyarzun Lafuente", "Universitat Pompeu Fabra Barcelona - Master Bioinformatics for Health Sciences", "2021", "Changes in gut microbiota metatranscriptome induced by a Bifidobacterium lactis CNCM I-2494 fermented milk are associated with improved gastrointestinal comfort",
   
   "Agnes Barnabé", "University of Paris-Saclay - M2 Biologie Computationnelle", "2019", "Détection et quantification de souches issues de produits laitiers fermentés dans le microbiote intestinal à partir de données métagénomiques",
@@ -105,6 +112,9 @@ tribble(
 ```{r education}
 tribble(
   ~ degree, ~ uni, ~ loc, ~ dates, ~ details,
+  
+  "University degree in sustainable health food and micronutrition", "University of Bourgogne","Dijon, France", "2021-2022", NULL,
+  
   "Ph.D. in Physiology and Pathophysiology", "University of Pierre & Marie Curie", "Paris, France", "2007-2009", NULL,
     
   "Master’s degree in Molecular and Cellular Biology", "University of Pierre & Marie Curie", "Paris, France", "2005-2006", 
@@ -139,7 +149,7 @@ tribble(
 
 
 ```
-
+\pagebreak
 # Publications
 
 
@@ -202,17 +212,34 @@ arrange(desc(issued))
 
 ## Research Articles
 
-```{r publications2}
+```{r message=FALSE, warning=FALSE}
+library(rvest)
+source("getCompleteAuthors.R")
+
+```
+
+
+
+```{r publications2, message=FALSE, warning=FALSE}
+conference_preceding = c("MICROBIAL ECOLOGY","Microbial Ecology","Obesity Reviews", "Diabetes & Metabolism",
+                         "Arthritis & Rheumatology", "The Second International Conference on Holobionts",
+                         "Current Developments in Nutrition","United European Gastroenterology Week",
+                         "International Human Microbiome Consortium Congress","Digestive Disease Week",
+                         "Journées Francophones d'Hépato-gastroentérologie et d'Oncologie Digestive",
+                         "ARTHRITIS & RHEUMATOLOGY","Conference on Gastrointestinal Function")
 
 articles_to_remove = c("bioRxiv","MICROBIAL ECOLOGY","Université Pierre et Marie Curie",
                       "Microbial Ecology","Obesity Reviews", "Diabetes & Metabolism",
                       "EP Patent EP", "Arthritis & Rheumatology", "Current Opinion in Food Science",
                       "médecine/sciences", "The Second International Conference on Holobionts",
-                      "Reference Module in Food Science", "Current Developments in Nutrition")
+                      "Reference Module in Food Science", "Current Developments in Nutrition", 
+                      "Colloque Microbiote: les micro-organismes dans la vie quotidienne",
+                      "Webinar MetaGenoPolis","NEUROGASTROENTEROLOGY AND MOTILITY",
+                      "International Human Microbiome Consortium Congress",
+                      "Journées Francophones d'Hépato-gastroentérologie et d'Oncologie Digestive",
+                      "United European Gastroenterology Week","Paris Metagenomics Analysis Group","Conference on Gastrointestinal Function",conference_preceding)
 
-conference_preceding = c("MICROBIAL ECOLOGY","Microbial Ecology","Obesity Reviews", "Diabetes & Metabolism",
-                         "Arthritis & Rheumatology", "The Second International Conference on Holobionts",
-                         "Current Developments in Nutrition")
+
 
 reviews_book = c("Current Opinion in Food Science","médecine/sciences","Reference Module in Food Science")
 
@@ -234,6 +261,12 @@ pubs %>%
       )
       ) -> pubs
 
+
+
+```
+
+
+```{r publications3, message=FALSE, warning=FALSE}
 pubs %>%
    ungroup() %>%
 distinct(title, .keep_all = TRUE) %>%
@@ -243,13 +276,15 @@ distinct(title, .keep_all = TRUE) %>%
   arrange(desc(year)) %>%
   filter(year > 2008) %>%
   filter(!(journaltitle %in% articles_to_remove)) %>%
-  rbind(
-    
-    tribble(
-  ~ bibtype, ~ author, ~ title, ~ journaltitle, ~ year, ~ key,
-  "Article", "T Vanhaecke, O Bretin, M Poirel, J Tap", "Drinking water source and intake are associated with distinct gut microbiota signatures", "The Journal of Nutrition", "2021", 99
-  )
-  ) %>%
+  filter(!(grepl("Nutrients 2021",title))) %>%
+  filter(!(grepl("Mo1942-",title))) %>%
+  # rbind(
+  #   
+  #   tribble(
+  # ~ bibtype, ~ author, ~ title, ~ journaltitle, ~ year, ~ key,
+  # "Article", "T Vanhaecke, O Bretin, M Poirel, J Tap", "Drinking water source and intake are associated with distinct gut microbiota signatures", "The Journal of Nutrition", "2021", 99
+  # )
+  # ) %>%
   
   arrange(desc(year)) %>%
   mutate(key = row_number()) %>%
@@ -258,10 +293,10 @@ distinct(title, .keep_all = TRUE) %>%
   
   #brief_entries(glue::glue("\\textbf{<title>}: <journaltitle> \\newline <author>", .open = "<", .close = ">"), paste0(year, "\\newline"), .protect = FALSE) #%>%
   #mutate(what = what %>% as.character)# %>% gsub("J Tap",'\\textbf{J Tap}'))
-
-
-
 ```
+
+
+
 \pagebreak
 ## Reviews and books chapter
 
