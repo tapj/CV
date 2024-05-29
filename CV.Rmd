@@ -226,7 +226,8 @@ conference_preceding = c("MICROBIAL ECOLOGY","Microbial Ecology","Obesity Review
                          "Current Developments in Nutrition","United European Gastroenterology Week",
                          "International Human Microbiome Consortium Congress","Digestive Disease Week",
                          "Journées Francophones d'Hépato-gastroentérologie et d'Oncologie Digestive",
-                         "ARTHRITIS & RHEUMATOLOGY","Conference on Gastrointestinal Function")
+                         "ARTHRITIS & RHEUMATOLOGY","Conference on Gastrointestinal Function", 
+                         "Metabolomics & Fermented Foods", "NutrEvent")
 
 articles_to_remove = c("bioRxiv","MICROBIAL ECOLOGY","Université Pierre et Marie Curie",
                       "Microbial Ecology","Obesity Reviews", "Diabetes & Metabolism",
