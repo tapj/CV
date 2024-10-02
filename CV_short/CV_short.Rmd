@@ -1,0 +1,89 @@
+---
+name: Julien
+surname: Tap
+date: "`r format(Sys.time(), '%B, %Y')`"
+qualifications: PhD
+position: Research Scientist
+address: INRAE, Micalis Institute, France
+email: julien.tap@inrae.fr
+www: fme.micalis.fr
+profilepic: 20210704154818_IMG_7493_nb.jpg
+aboutme: Julien is a research scientist at INRAE Micalis institute settled in Paris-Saclay campus, where he works on food and gut microbiome science topics around nutrition and human health.
+github: tapj
+linkedin: julientap
+twitter: julientap
+headcolor: "008C8E"
+output: 
+  vitae::hyndman:
+    keep_tex: false
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(vitae)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Short Bio
+
+Julien is a research scientist at INRAE Micalis Institute, Paris-Saclay, focused on the links between sustainable diets and the gut microbiome. His work has consistently leveraged crowdsourcing initiatives to explore these connections. Now, he is notably investigating how AI can further enhance microbiome research and its societal applications.
+
+# Career/Academic appointment
+
+```{r experience}
+tribble(
+  ~ role, ~ company, ~ loc, ~ dates, ~ details,
+  
+  "Research scientist", "INRAE Micalis", "Jouy-en-Josas", "2022-Present", 
+  list("Grand Defi Ferments du Futur - Precompetitive project coordinator, Co-workpackage leader on French Gut project"),
+  
+  "Microbiome scientist", "Danone Nutricia Research", "Paris-Saclay, France", "2015-2022", 
+  list("Task leader The Human Diets and Microbiome Initiative (w/ Rob Knight Lab),
+         Co-design UX/UI dashboard for THDMI study participants feedback"),
+   
+  "Postdoctoral Researcher", "INRA Metagenopolis", "Jouy-en-Josas, France", "2013-2014", NULL,
+  
+  "Postdoctoral Researcher", "AP-HP CHU Henri Mondor", "Créteil, France", "2012-2013", NULL,
+  
+  "Postdoctoral Researcher", "EMBL Peer Bork group Computational Biology", "Heidelberg, Germany", "2010-2012", 
+  list("Co-discoverer of the Human Gut Enterotypes, Co-founder of my.microbes.eu, world first crowdsourcing microbiome project"),
+  
+  "PhD student", "INRA Doré Lab", "Jouy-en-Josas, France", "2007-2009", NULL,
+  
+  "Internship student","Institut Pasteur", "Paris, France", "2004-2006", NULL
+) %>% 
+  detailed_entries(role, dates, company, loc, details)
+```
+
+
+# Education
+
+```{r education}
+tribble(
+  ~ degree, ~ uni, ~ loc, ~ dates, ~ details,
+  
+  "University degree in Sustainable Health Food and Micronutrition", "University of Bourgogne","Dijon, France", "2021-2022", NULL,
+  
+  "Ph.D. in Physiology and Pathophysiology", "University of Pierre & Marie Curie", "Paris, France", "2007-2009", NULL,
+    
+  "Master’s degree in Molecular and Cellular Biology", "University of Pierre & Marie Curie", "Paris, France", "2005-2006", 
+    NULL,
+  "Bachelor’s degree in Biochemical and Food Tech.", "University of Paris-Est Creteil", "Creteil, France", "2001-2004", 
+    NULL,
+  
+         
+) %>% 
+  detailed_entries(degree, dates, uni, loc, details)
+```
+
+
+# Relevant publications
+
+- *Tap and De Montera.* Microbial states and social behavior: towards an extended influence of symbiosis? **2024**. Symbioses preceeding
+- *Tap et al.* Global branches and local states of the human gut microbiome define associations with environmental and intrinsic factors. **2023**. Nature communications
+- *Tap et al.* The Human Gut Microbiota in all its States: From Disturbance to Resilience. Comprehensive Gut Microbiota, Elsevier, pp.161-178, **2022**. 
+- *Tap et al.* Diet and gut microbiome interactions of relevance for symptoms in irritable bowel syndrome. **2021**. Microbiome
+
+
+
